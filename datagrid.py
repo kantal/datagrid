@@ -413,8 +413,8 @@ class DataGrid(ttk.Frame):
 
         def setcolor(artist, ax, plotnm, ocolor):
 
-            c= tkcolorch.askcolor(ocolor, title=plotnm)[1]
             self.menu_off(None)
+            c= tkcolorch.askcolor(ocolor, title=plotnm)[1]
             if c==None:
                 return
 
@@ -428,6 +428,7 @@ class DataGrid(ttk.Frame):
                 for r in artist:
                     r.set_facecolor(c)
 
+            self.fig.canvas.draw_idle()
             self.legend(ax)
 
         #--
